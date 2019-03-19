@@ -1,14 +1,14 @@
 import java.util.Arrays;
+import java.util.Random;
 public class Merge{
   public static void main(String[]args){
-    int[] ary = {54, 3, 4, 3, 1, 6 ,7 ,43, 2, 67, 9, 15, 33};
-    mergesort(ary);
-    System.out.println(Arrays.toString(ary));
-    int[] a1 = {1, 2, 3, 3, 3, 4, 6, 9, 9};
-    int[] a2 = {3, 3, 3, 4, 4, 5, 8, 8, 8, 8, 9, 9};
-    int[] whole = new int[21];
-    //mergeArrays(whole, a1, a2);
-    //System.out.println(Arrays.toString(whole));
+    Random r = new Random();
+    int[] ms = new int[1000000];
+    for (int idx = 0; idx < 1000000; idx ++) ms[idx] = r.nextInt(100000);
+    int[] as = ms;
+    mergesort(ms);
+    Arrays.sort(as);
+    System.out.println(Arrays.equals(ms, as));
   }
 
   public static void mergesort(int[] data) {mergesort(data, 0, data.length - 1);}
