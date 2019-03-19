@@ -1,8 +1,8 @@
 import java.util.Arrays;
 public class Merge{
   public static void main(String[]args){
-    int[] ary = {3, 4, 3, 1, 6 ,7 ,43, 2, 67, 9};
-    mergesort(ary);
+    //int[] ary = {3, 4, 3, 1, 6 ,7 ,43, 2, 67, 9};
+    //mergesort(ary);
   }
 
   public static void mergesort(int[] data) {mergesort(data, 0, data.length - 1);}
@@ -25,5 +25,18 @@ public class Merge{
     mergesort(back, 0, back.length - 1);
   }
 
-  public static void mergeArrays(int[] whole, int[] front, int[] back){}
+  public static void mergeArrays(int[] whole, int[] front, int[] back){
+    int f = 0; int b = 0; int w = 0;
+    while (w < whole.length){
+      if (f < front.length && b < back.length){
+        if (front[f] < back[b]) whole[w] = front[f]; f ++;
+        else whole[w] = back[b]; b ++;
+      }
+      else if (f < front.length) whole[w] = front[f]; f ++;
+      else whole[w] = back[b]; b ++;
+      w ++;
+    }
+  }
+
+
 }
