@@ -14,7 +14,6 @@ public class Merge{
   public static void mergesort(int[] data) {mergesort(data, 0, data.length - 1);}
 
   private static void mergesort(int[]data, int lo, int hi){
-    //System.out.println(Arrays.toString(data));
     if (lo >= hi) return;
     int nums = hi - lo + 1;
     int[] front;
@@ -25,8 +24,6 @@ public class Merge{
       front[idx] = data[idx + lo];
       if (back.length - 1 - idx >= 0) back[back.length - 1 - idx] = data[hi - idx];
     }
-    System.out.println(Arrays.toString(front) + " " + Arrays.toString(back));
-    System.out.println(Arrays.toString(back));
     mergesort(front, 0, front.length - 1);
     mergesort(back, 0, back.length - 1);
     mergeArrays(data, front, back);
